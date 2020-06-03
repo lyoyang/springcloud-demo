@@ -1,6 +1,7 @@
 package com.lyoyang.orderservice.controller;
 
-import com.lyoyang.orderservice.service.MemberService;
+import com.lyoyang.api.MemberApi;
+import com.lyoyang.dto.MemberRespDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,11 +12,11 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private MemberService memberService;
+    private MemberApi memberApi;
 
-    @RequestMapping("/getAllUser")
-    public List<String> getAllUser(){
-        return memberService.getAllUser();
+    @RequestMapping("/getMembers")
+    public List<MemberRespDto> getAllUser() {
+        return memberApi.getMembers();
     }
 
 }

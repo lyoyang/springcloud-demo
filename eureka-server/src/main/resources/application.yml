@@ -2,9 +2,8 @@ server:
   port: 8888
 eureka:
   instance:
-    hostname: localhost
+    hostname: 192.168.1.203
   client:
-#自己不用注册
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
