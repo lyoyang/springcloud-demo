@@ -1,8 +1,0 @@
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\dto\MemberRespDto.java
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\response\UserInfoResp.java
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\api\UserInfoApi.java
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\enums\ResponseEnum.java
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\fallback\UserInfoApiFallBack.java
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\response\Paginator.java
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\api\MemberApi.java
-D:\gitdemo\springcloud-demo\provider-api\src\main\java\com\lyoyang\response\MvcResponse.java
