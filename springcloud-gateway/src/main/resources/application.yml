@@ -1,24 +1,24 @@
-server:
-  port: 8088
-spring:
-  application:
-    name: gateway_client
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: router_order
-          uri: lb://nacos-order-app
-          predicates:
-            - Path=/mini/**
-          filters:
-            - StripPrefix=1
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-debug: true
-logging:
-  level:
-    org.springframework.cloud.gateway: debug
+#server:
+#  port: 8088
+#spring:
+#  application:
+#    name: gateway_client
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#      routes:
+#        - id: nacos-user-provider
+#          uri: lb://nacos-user-provider
+#          predicates:
+#            - Path=/user/api/getUserInfo
+#          filters:
+#            - StripPrefix=1
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#debug: true
+#logging:
+#  level:
+#    org.springframework.cloud.gateway: debug

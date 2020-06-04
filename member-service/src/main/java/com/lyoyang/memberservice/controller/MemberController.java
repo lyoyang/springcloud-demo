@@ -1,6 +1,7 @@
 package com.lyoyang.memberservice.controller;
 
 import com.lyoyang.dto.MemberRespDto;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @RestController
 public class MemberController {
 
-    @RequestMapping(value = "/api/getMembers")
+    @RequestMapping(value = "/api/getMembers", produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<MemberRespDto> getMembers() {
         MemberRespDto m1 = MemberRespDto.builder().id("1").name("jim").build();
         MemberRespDto m2 = MemberRespDto.builder().id("2").name("alice").build();
