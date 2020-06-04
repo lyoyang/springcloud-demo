@@ -11,6 +11,20 @@
     <name>springcloud-demo</name>
     <description>Demo project for Spring Cloud</description>
 
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java_source_version>1.8</java_source_version>
+        <java_target_version>1.8</java_target_version>
+        <file_encoding>UTF-8</file_encoding>
+        <encoding>UTF-8</encoding>
+        <downloadSources>true</downloadSources>
+<!--        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>-->
+        <java.version>1.8</java.version>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -40,6 +54,20 @@
                 <version>2.2.3.RELEASE</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>2.2.1.RELEASE</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>0.2.7</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -52,7 +80,10 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>springcloud-alibaba</module>
-        <module>member-api</module>
+        <module>provider-api</module>
+        <module>nacos-consumer</module>
+        <module>nacos-provider</module>
+        <module>springcloud-gateway</module>
     </modules>
 
 
