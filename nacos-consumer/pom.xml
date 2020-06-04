@@ -38,6 +38,8 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
+
         <dependency>
             <groupId>com.lyoyang</groupId>
             <artifactId>provider-api</artifactId>
