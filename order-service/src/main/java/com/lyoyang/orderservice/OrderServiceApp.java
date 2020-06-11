@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableEurekaClient
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"com.lyoyang.api"})
+@EnableFeignClients(basePackages = {"com.lyoyang"})
 @EnableDiscoveryClient
 public class OrderServiceApp {
 

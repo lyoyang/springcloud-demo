@@ -24,6 +24,7 @@ public class MemberController {
         return Arrays.asList(m1, m2, m3);
     }
 
+
     @RequestMapping("/getServiceUrl")
     public Object getServiceUrl() {
         return eurekaClientConfigBean.getServiceUrl();
