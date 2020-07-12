@@ -19,6 +19,7 @@ public class OauthResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private LabAuthExceptionEntryPoint labAuthExceptionEntryPoint;
 
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()

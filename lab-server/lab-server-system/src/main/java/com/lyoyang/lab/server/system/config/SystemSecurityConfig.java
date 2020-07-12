@@ -15,7 +15,7 @@ public class SystemSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .requestMatchers().antMatchers("/**")
-                .and().authorizeRequests()
+                .and().authorizeRequests().antMatchers("/actuator/**").permitAll()
                 .antMatchers("/**").authenticated();
     }
 }

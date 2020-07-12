@@ -18,17 +18,13 @@ public class MybatisGenerator {
 
 
     private final static String OUTPUT_DIR = "/lab-generator/src/main/java";// 生成文件的输出目录
+    private final static String OUTPUT_RESOURCE = "/lab-generator/src/main/resources";// 生成文件的输出目录
     private final static String AUTHOR = "brian";// 开发人员
     // 数据源配置
-    private final static String DATABASE_IP = "127.0.0.1";// 数据库id
+    private final static String DATABASE_IP = "jdbc:mysql://localhost:3306/lab_cloud?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8";// 数据库id
     private final static String DATABASE_NAME = "lab_cloud";// 数据库名称
     // 包配置
     private final static String PARENT = "com.lyoyang.lab.common.entity.system";// 父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
-    private final static String MODULE_NAME = "ssm";// 父包模块名
-    // 自定义基类
-    private final static String SuperEntity = "com.baomidou.mybatisplus.samples.generator.common.BaseE" +
-            "ntity";// 所有实体的基类(全类名)
-    private final static String SuperController = "com.baomidou.mybatisplus.samples.generator.common.BaseController";// 所有控制器的基类(全类名)
 
 
 
@@ -66,17 +62,17 @@ public class MybatisGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/lab_cloud?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl(DATABASE_IP);
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("Lyoyang888$");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.lyoyang.lab");
+        pc.setParent("com.lyoyang.lab.common");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -91,8 +87,7 @@ public class MybatisGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + OUTPUT_DIR + "/resources/mapper/" + pc.getModuleName()
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + OUTPUT_RESOURCE + "/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         cfg.setFileOutConfigList(focList);
@@ -103,9 +98,9 @@ public class MybatisGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.baomidou.mybatisplus.samples.generator.common.BaseEntity");
+//        strategy.setSuperEntityClass("com.baomidou.mybatisplus.samples.generator.common.BaseEntity");
         strategy.setEntityLombokModel(true);
-        strategy.setSuperControllerClass("com.baomidou.mybatisplus.samples.generator.common.BaseController");
+//        strategy.setSuperControllerClass("com.baomidou.mybatisplus.samples.generator.common.BaseController");
         strategy.setInclude(scanner("表名"));
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
