@@ -49,8 +49,8 @@
 
 		<dependency>
 			<groupId>com.lyoyang</groupId>
-			<artifactId>member-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>provider-api</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>

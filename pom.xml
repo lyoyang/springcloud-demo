@@ -78,7 +78,7 @@
 
 
     <modules>
-        <module>service-zuul</module>
+        <module>lab-zuul</module>
         <module>order-service</module>
         <module>member-service</module>
         <module>eureka-server</module>
@@ -89,6 +89,10 @@
         <module>nacos-consumer</module>
         <module>nacos-provider</module>
         <module>springcloud-gateway</module>
+        <module>lab-common</module>
+        <module>lab-server</module>
+        <module>lab-server</module>
+        <module>lab-generator</module>
     </modules>
 
 
