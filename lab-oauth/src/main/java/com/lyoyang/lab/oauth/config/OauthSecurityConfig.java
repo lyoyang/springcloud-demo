@@ -47,7 +47,7 @@ public class OauthSecurityConfig extends WebSecurityConfigurerAdapter {
                 .requestMatchers()
                 .antMatchers("/oauth/**")
                 .and().authorizeRequests()
-                .antMatchers(anonUrls).permitAll()
+//                .antMatchers(anonUrls).permitAll()
                 .antMatchers("/oauth/**")
                 .authenticated().and().csrf().disable();
     }
