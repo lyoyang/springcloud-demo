@@ -19,8 +19,9 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
-import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.*;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 @Configuration
@@ -64,7 +65,9 @@ public class OauthAuthorizationServerConfigure extends AuthorizationServerConfig
                 inMemoryBuilder.withClient(clientsProperties.getClient())
                         .secret(passwordEncoder.encode(clientsProperties.getSecret()))
                         .authorizedGrantTypes(grantTypes)
-                        .scopes(clientsProperties.getScope());
+                        .scopes(clientsProperties.getScope())
+                        .accessTokenValiditySeconds(labAuthProperties.getAccessTokenValiditySeconds())
+                        .refreshTokenValiditySeconds(labAuthProperties.getRefreshTokenValiditySeconds());
             }
         }
     }
@@ -73,15 +76,16 @@ public class OauthAuthorizationServerConfigure extends AuthorizationServerConfig
     @SuppressWarnings("all")
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(tokenStore())
+                .accessTokenConverter(jwtAccessTokenConverter())
                 .userDetailsService(customUserDetailService)
                 .authenticationManager(authenticationManager)
-                .tokenServices(tokenService())
+//                .tokenServices(tokenService())
                 .exceptionTranslator(labWebResponseExceptionTranslator);
     }
 
     @Bean
     public TokenStore tokenStore() {
-        return new RedisTokenStore(redisConnectionFactory);
+        return new JwtTokenStore(jwtAccessTokenConverter());
     }
 
     @Bean
@@ -93,6 +97,19 @@ public class OauthAuthorizationServerConfigure extends AuthorizationServerConfig
         tokenServices.setRefreshTokenValiditySeconds(labAuthProperties.getRefreshTokenValiditySeconds());
         return tokenServices;
     }
+
+
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+        DefaultAccessTokenConverter accessTokenConverter = (DefaultAccessTokenConverter) jwtAccessTokenConverter.getAccessTokenConverter();
+        DefaultUserAuthenticationConverter defaultUserAuthenticationConverter = new DefaultUserAuthenticationConverter();
+        defaultUserAuthenticationConverter.setUserDetailsService(customUserDetailService);
+        accessTokenConverter.setUserTokenConverter(defaultUserAuthenticationConverter);
+        jwtAccessTokenConverter.setSigningKey("lab");
+        return jwtAccessTokenConverter;
+    }
+
 
 
 

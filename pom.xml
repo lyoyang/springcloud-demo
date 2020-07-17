@@ -21,7 +21,7 @@
         <file_encoding>UTF-8</file_encoding>
         <encoding>UTF-8</encoding>
         <downloadSources>true</downloadSources>
-<!--        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>-->
+        <cloud.version>Hoxton.SR5</cloud.version>
         <java.version>1.8</java.version>
     </properties>
 
@@ -38,7 +38,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR5</version>
+                <version>${cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

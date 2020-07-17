@@ -1,5 +1,6 @@
 package com.lyoyang.lab.gateway.handler;
 
+import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;
@@ -46,6 +47,8 @@ public class LabGatewayExceptionHandler extends DefaultErrorWebExceptionHandler 
             erroeMsg = "request time out";
         } else if (error instanceof ResponseStatusException && StringUtils.containsIgnoreCase(error.getMessage(), HttpStatus.NOT_FOUND.toString())) {
             erroeMsg = "not found resource";
+        } else if (error instanceof ParamFlowException) {
+            erroeMsg = "访问频率超限";
         } else {
             erroeMsg = "gateway forwarding exception";
         }

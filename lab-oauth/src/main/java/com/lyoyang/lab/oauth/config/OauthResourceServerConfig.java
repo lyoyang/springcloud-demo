@@ -40,4 +40,5 @@ public class OauthResourceServerConfig extends ResourceServerConfigurerAdapter {
         resources.authenticationEntryPoint(labAuthExceptionEntryPoint)
                 .accessDeniedHandler(labAccessDeniedHandler);
     }
+
 }
