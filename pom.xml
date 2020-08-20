@@ -79,19 +79,18 @@
 
     <modules>
         <module>lab-zuul</module>
+        <module>provider-api</module>
         <module>order-service</module>
         <module>member-service</module>
         <module>eureka-server</module>
         <module>config-server</module>
         <module>config-client</module>
         <module>springcloud-alibaba</module>
-        <module>provider-api</module>
         <module>nacos-consumer</module>
         <module>nacos-provider</module>
         <module>lab-gateway</module>
         <module>lab-common</module>
         <module>lab-server</module>
-        <module>lab-generator</module>
         <module>lab-monitor</module>
     </modules>
 
