@@ -2,7 +2,7 @@ package com.lyoyang.fallback;
 
 import com.lyoyang.api.MemberApi;
 import com.lyoyang.dto.MemberRespDto;
-import feign.hystrix.FallbackFactory;
+import org.springframework.cloud.openfeign.FallbackFactory;
 
 import java.util.Collections;
 import java.util.List;

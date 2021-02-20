@@ -110,9 +110,4 @@ public class OauthAuthorizationServerConfigure extends AuthorizationServerConfig
         return jwtAccessTokenConverter;
     }
 
-
-
-
-
-
 }

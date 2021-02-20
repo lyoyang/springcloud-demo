@@ -9,9 +9,9 @@ spring.application.name=lab-server-system
 #eureka.client.registry-fetch-interval-seconds=3
 #eureka.client.service-url.defaultZone=http://localhost:8085/eureka/
 #Nacos
-spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
-spring.cloud.nacos.config.file-extension=properties
-spring.cloud.nacos.config.group=DEFAULT_GROUP
+#spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+#spring.cloud.nacos.config.file-extension=properties
+#spring.cloud.nacos.config.group=DEFAULT_GROUP
 security.oauth2.resource.id=${spring.application.name}
 security.oauth2.resource.user-info-uri=http://localhost:8088/auth/user
 

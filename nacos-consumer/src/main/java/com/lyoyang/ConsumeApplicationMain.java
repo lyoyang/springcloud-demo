@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"com.lyoyang"})
+@EnableFeignClients(basePackages = {"com.lyoyang", "com.xxl.job"})
 public class ConsumeApplicationMain {
 
     public static void main(String[] args) {
